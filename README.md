@@ -42,9 +42,15 @@ Tras ejecutar el paso 3 debería quedar un prompt ejecutándose desde el entorno
 $ docker exec -it RG350_buster_buildroot /bin/bash
 ```
 
+Si el comando anterior devuelve un error indicando que el contenedor está parado, podemos arrancarlo antes ejecutando la orden:
+
+```
+$ docker start RG350_buster_buildroot
+```
+
 # Operación de Buildroot
 
-Una vez que tenemos preparado el entorno podremos realizar las tareas y compilaciones previstas en el mismo. Por ejemplo en el entorno preparado por [od-contrib](https://github.com/od-contrib/buildroot-rg350-old-kernel) vemos que podemos realizar las siguientes cosas (las líneas de terminal siguientes están precedidas por `#` y no por `$` como antes porque se refieren al terminal dentro del contenedor, que se ejecuta con el usuario root del mismo):
+Una vez que tenemos preparado el entorno podremos realizar las tareas y compilaciones previstas en el mismo. Por ejemplo en el entorno preparado por [od-contrib](https://github.com/od-contrib/buildroot-rg350-old-kernel) vemos que podemos realizar las siguientes operaciones (las líneas de terminal siguientes están precedidas por `#` y no por `$` como antes porque se refieren al terminal dentro del contenedor, que se ejecuta con el usuario root del mismo):
 
 * Configurar Buildroot (sólo es necesario la primera vez):
 
@@ -89,7 +95,7 @@ Una vez que tenemos preparado el entorno podremos realizar las tareas y compilac
 
     ```
     # cd ~/git/buildroot-rg350-old-kernel
-    # board/opendingux/gcw0/make_initial_image.sh
+    # board/opendingux/gcw0/make_initial_image.sh rg350
     ```
 
 Todo el proceso de compilación genera unos 12GBs de archivos.
